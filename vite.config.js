@@ -1,14 +1,13 @@
 import reactRefresh from '@vitejs/plugin-react-refresh'
 import { defineConfig } from 'vite'
 import vitePluginImp from 'vite-plugin-imp'
+import path from 'path'
 import svgr from 'vite-plugin-svgr'
-import tsconfigPaths from 'vite-tsconfig-paths'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     reactRefresh(),
-    tsconfigPaths(),
     svgr(),
     vitePluginImp({
       optimize: true,
@@ -27,6 +26,11 @@ export default defineConfig({
         javascriptEnabled: true,
         modifyVars: { '@primary-color': '#49ADFC' },
       },
+    },
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
     },
   },
 })
