@@ -1,11 +1,10 @@
-/* eslint-disable jsx-a11y/aria-role */
 import './index.less'
 
 import { Layout } from 'antd'
 import React, { useState } from 'react'
 
-import Header from '@/components/Header'
-import Sider from '@/components/Sider'
+import Header from './Header'
+import Sider from './Sider'
 
 const { Content } = Layout
 
@@ -16,7 +15,7 @@ const MLayout = () => {
 
   return (
     <Layout>
-      <Sider collapsed={collapsed} role="all" />
+      <Sider collapsed={collapsed} />
       <Layout className="site-layout">
         <Header toggleSidebar={toggleSidebar} collapsed={collapsed} />
         <Content

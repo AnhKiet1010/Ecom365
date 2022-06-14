@@ -1,17 +1,17 @@
 import React from 'react'
-import Home from '@/features/Home'
-import { Route, Switch } from 'react-router-dom'
-import './App.less'
+import { Provider } from 'react-redux'
+import { ConfigProvider } from 'antd'
+import viVN from 'antd/es/locale/vi_VN'
+import store from '@/store'
+import Router from '@/router'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <Switch>
-        {/* <PrivateRoute exact={true} path="/" component={Home} />
-        <PublicRoute exact={true} path="/login" component={Login} /> */}
-        <Route path="/" component={Home} />
-      </Switch>
-    </div>
+    <ConfigProvider locale={viVN}>
+      <Provider store={store}>
+        <Router />
+      </Provider>
+    </ConfigProvider>
   )
 }
 

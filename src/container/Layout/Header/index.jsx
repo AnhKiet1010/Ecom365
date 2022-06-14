@@ -3,7 +3,7 @@ import './index.less'
 import { Layout } from 'antd'
 import React from 'react'
 
-import Hamburger from '../Hamburger'
+import Hamburger from '../../../components/Hamburger'
 
 const { Header: HeaderAntd } = Layout
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import './index.less'
 
 import { Layout } from 'antd'
@@ -6,7 +6,7 @@ import { Layout } from 'antd'
 import Logo from './Logo'
 import IMenu from './Menu'
 import { Link } from 'react-router-dom'
-import routes from '@/routes'
+import menu from '@/config/menu'
 import Icon from '@ant-design/icons'
 
 const { Sider } = Layout
@@ -28,7 +28,8 @@ const SiderComponent = ({ collapsed }) => {
     return menuList.reduce((pre, item) => {
       if (!item.roles || filterMenuItem(item)) {
         const menuItem = {
-          label: item.path ? <Link to={item.path}>{item.label}</Link> : item.label,
+          label:
+            item.path && !item.children ? <Link to={item.path}>{item.label}</Link> : item.label,
           key: item.path,
           icon: item.icon ? <Icon component={item.icon} /> : null,
         }
@@ -42,8 +43,7 @@ const SiderComponent = ({ collapsed }) => {
     }, [])
   }
 
-  const items = getItem(routes)
-  console.log(items)
+  const items = useMemo(() => getItem(menu), [])
 
   return (
     <>

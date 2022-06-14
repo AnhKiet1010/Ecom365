@@ -8,7 +8,7 @@ export default function Logo({ collapsed }) {
   return (
     <div className="logo">
       <img src={LOGO} alt="logo" />
-      {!collapsed && <p className="logo-text">Ecom365</p>}
+      {!collapsed && <p className="logo-text">Ecom3653123123</p>}
     </div>
   )
 }
