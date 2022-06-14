@@ -2,16 +2,20 @@ import React, { useMemo } from 'react'
 import './index.less'
 
 import { Layout } from 'antd'
+import { connect } from 'react-redux'
 
 import Logo from './Logo'
 import IMenu from './Menu'
+import Search from './Search'
 import { Link } from 'react-router-dom'
 import menu from '@/config/menu'
 import Icon from '@ant-design/icons'
 
 const { Sider } = Layout
 
-const SiderComponent = ({ collapsed }) => {
+const SiderComponent = (props) => {
+  const { sidebarCollapsed } = props
+
   const role = 'admin'
 
   const filterMenuItem = (item) => {
@@ -47,12 +51,20 @@ const SiderComponent = ({ collapsed }) => {
 
   return (
     <>
-      <Sider trigger={null} collapsible collapsed={collapsed} width="250px">
-        <Logo collapsed={collapsed} />
+      <Sider trigger={null} collapsible collapsed={sidebarCollapsed} width="250px">
+        <Logo collapsed={sidebarCollapsed} />
+        <Search />
         <IMenu items={items} />
       </Sider>
     </>
   )
 }
 
-export default SiderComponent
+const mapStateToProps = (state) => {
+  return {
+    ...state.app,
+    ...state.settings,
+  }
+}
+
+export default connect(mapStateToProps)(SiderComponent)

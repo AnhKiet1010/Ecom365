@@ -7,10 +7,10 @@ import Hamburger from '../../../components/Hamburger'
 
 const { Header: HeaderAntd } = Layout
 
-const Header = ({ toggleSidebar, collapsed }) => {
+const Header = () => {
   return (
     <HeaderAntd className="site-layout-background">
-      <Hamburger toggleSidebar={toggleSidebar} collapsed={collapsed} />
+      <Hamburger />
     </HeaderAntd>
   )
 }

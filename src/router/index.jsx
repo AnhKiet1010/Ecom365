@@ -1,28 +1,29 @@
 import React from 'react'
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getUserInfo } from '@/store/actions'
-import Layout from '@/container/layout'
+import Layout from '@/container/Layout'
 // import Login from '@/features/login'
-const Router = (props) => {
-  const { token, role, getUserInfo } = props
+const Router = () => {
+  // const { token } = props
   return (
     <BrowserRouter>
       <Switch>
         {/* <Route exact path="/login" component={Login} /> */}
         <Route
           path="/"
-          render={() => {
-            if (!token) {
-              return <Redirect to="/login" />
-            } else {
-              // if (role) {
-              return <Layout />
-              // } else {
-              //   getUserInfo(token).then(() => <Layout />)
-              // }
-            }
-          }}
+          // render={() => {
+          //   if (!token) {
+          //     return <Redirect to="/login" />
+          //   } else {
+          //     if (role) {
+          //       return <Layout />
+          //     } else {
+          //       getUserInfo(token).then(() => <Layout />)
+          //     }
+          //   }
+          // }}
+          component={Layout}
         />
       </Switch>
     </BrowserRouter>

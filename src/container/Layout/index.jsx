@@ -1,7 +1,7 @@
 import './index.less'
 
 import { Layout } from 'antd'
-import React, { useState } from 'react'
+import React from 'react'
 
 import Header from './Header'
 import Sider from './Sider'
@@ -9,15 +9,11 @@ import Sider from './Sider'
 const { Content } = Layout
 
 const MLayout = () => {
-  const [collapsed, setCollapsed] = useState(false)
-
-  const toggleSidebar = () => setCollapsed(!collapsed)
-
   return (
     <Layout>
-      <Sider collapsed={collapsed} />
+      <Sider />
       <Layout className="site-layout">
-        <Header toggleSidebar={toggleSidebar} collapsed={collapsed} />
+        <Header />
         <Content
           className="site-layout-background"
           style={{

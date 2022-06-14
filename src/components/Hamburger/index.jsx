@@ -2,18 +2,21 @@ import './index.less'
 
 import Icon from '@ant-design/icons'
 import React from 'react'
+import { connect } from 'react-redux'
+import { toggleSiderBar } from '@/store/actions'
 
 import { CircleArrowClose, CircleArrowOpen } from '@/icons'
 
-const Hamburger = ({ collapsed, toggleSidebar }) => {
+const Hamburger = (props) => {
+  const { sidebarCollapsed, toggleSiderBar } = props
   return (
     <div className="hamburger-container">
       <Icon
-        component={collapsed ? CircleArrowOpen : CircleArrowClose}
-        onClick={() => toggleSidebar()}
+        component={sidebarCollapsed ? CircleArrowOpen : CircleArrowClose}
+        onClick={() => toggleSiderBar()}
       />
     </div>
   )
 }
 
-export default Hamburger
+export default connect((state) => state.app, { toggleSiderBar })(Hamburger)

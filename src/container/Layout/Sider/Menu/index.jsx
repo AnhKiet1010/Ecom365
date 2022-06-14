@@ -4,7 +4,6 @@ import { Scrollbars } from 'react-custom-scrollbars'
 import './index.less'
 
 function IMenu({ items }) {
-  console.log(items)
   return (
     <div className="sidebar-menu-container">
       <Scrollbars autoHide autoHideTimeout={1000} autoHideDuration={200}>
