@@ -1,15 +1,18 @@
-import React from 'react'
-import { Provider } from 'react-redux'
+import Loading from '@/components/Loading'
+import Router from '@/router'
+import store from '@/store'
 import { ConfigProvider } from 'antd'
 import viVN from 'antd/es/locale/vi_VN'
-import store from '@/store'
-import Router from '@/router'
+import { Suspense } from 'react'
+import { Provider } from 'react-redux'
 
 const App = () => {
   return (
     <ConfigProvider locale={viVN}>
       <Provider store={store}>
-        <Router />
+        <Suspense fallback={<Loading />}>
+          <Router />
+        </Suspense>
       </Provider>
     </ConfigProvider>
   )

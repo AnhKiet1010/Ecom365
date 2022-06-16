@@ -1,4 +1,4 @@
-import { Home, Stock } from '@/icons'
+import { Home, Stock, HRM } from '@/icons'
 
 const routes = [
   {
@@ -10,11 +10,11 @@ const routes = [
   {
     label: 'Quản lí bán hàng',
     icon: Stock,
-    path: '/products',
+    path: '/product',
     children: [
       {
         label: 'Sản phẩm',
-        path: '/products/list',
+        path: '/products',
         roles: ['admin'],
       },
       {
@@ -45,6 +45,33 @@ const routes = [
       {
         label: 'Khuyến mại',
         path: '/products/promotion',
+        roles: ['admin'],
+      },
+    ],
+  },
+  {
+    label: 'HRM',
+    icon: HRM,
+    path: '/hrm',
+    children: [
+      {
+        label: 'Chi nhánh',
+        path: '/hrm/list',
+        roles: ['admin'],
+      },
+      {
+        label: 'Phòng ban',
+        path: '/hrm/category',
+        roles: ['admin'],
+      },
+      {
+        label: 'Chức vụ',
+        path: '/hrm/list-category',
+        roles: ['admin'],
+      },
+      {
+        label: 'Quản lí nhân viên',
+        path: '/hrm/store',
         roles: ['admin'],
       },
     ],

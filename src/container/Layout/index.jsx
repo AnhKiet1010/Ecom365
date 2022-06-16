@@ -1,12 +1,11 @@
 import './index.less'
 
 import { Layout } from 'antd'
-import React from 'react'
+import { connect } from 'react-redux'
 
+import Content from './Content'
 import Header from './Header'
 import Sider from './Sider'
-
-const { Content } = Layout
 
 const MLayout = () => {
   return (
@@ -14,19 +13,17 @@ const MLayout = () => {
       <Sider />
       <Layout className="site-layout">
         <Header />
-        <Content
-          className="site-layout-background"
-          style={{
-            margin: '24px 16px',
-            padding: 24,
-            minHeight: 280,
-          }}
-        >
-          Content
-        </Content>
+        <Content />
       </Layout>
     </Layout>
   )
 }
 
-export default MLayout
+const mapStateToProps = (state) => {
+  return {
+    ...state.app,
+    ...state.settings,
+  }
+}
+
+export default connect(mapStateToProps)(MLayout)

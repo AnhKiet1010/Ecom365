@@ -1,46 +1,50 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { Redirect, withRouter, Route, Switch } from 'react-router-dom'
 import DocumentTitle from 'react-document-title'
 import { connect } from 'react-redux'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import { Layout } from 'antd'
 import { getMenuItemInMenuListByProperty } from '@/utils'
-import routeList from '@/config/routeMap'
-import menuList from '@/config/menuConfig'
+import routeMap from '@/config/routeMap'
+import menuList from '@/config/menu'
+import Loading from '@/components/Loading'
 const { Content } = Layout
 
 const getPageTitle = (menuList, pathname) => {
   let title = 'Ecom365'
   let item = getMenuItemInMenuListByProperty(menuList, 'path', pathname)
   if (item) {
-    title = `${item.title} - Ecom365`
+    title = `${item.label} - Ecom365`
   }
   return title
 }
 
-const LayoutContent = (props) => {
+const ContentLayout = (props) => {
   const { role, location } = props
   const { pathname } = location
+
   const handleFilter = (route) => {
-    // 过滤没有权限的页面
     return role === 'admin' || !route.roles || route.roles.includes(role)
   }
+
   return (
     <DocumentTitle title={getPageTitle(menuList, pathname)}>
       <Content style={{ height: 'calc(100% - 100px)' }}>
         <TransitionGroup>
           <CSSTransition key={location.pathname} timeout={500} classNames="fade" exit={false}>
-            <Switch location={location}>
-              <Redirect exact from="/" to="/dashboard" />
-              {routeList.map((route) => {
-                return (
-                  handleFilter(route) && (
-                    <Route component={route.component} key={route.path} path={route.path} />
+            <Suspense fallback={<Loading />}>
+              <Switch location={location}>
+                <Redirect exact from="/" to="/home" />
+                {routeMap.map((route) => {
+                  return (
+                    handleFilter(route) && (
+                      <Route exact component={route.component} key={route.path} path={route.path} />
+                    )
                   )
-                )
-              })}
-              <Redirect to="/error/404" />
-            </Switch>
+                })}
+                <Redirect to="/error/404" />
+              </Switch>
+            </Suspense>
           </CSSTransition>
         </TransitionGroup>
       </Content>
@@ -48,4 +52,4 @@ const LayoutContent = (props) => {
   )
 }
 
-export default connect((state) => state.user)(withRouter(LayoutContent))
+export default connect((state) => state.user)(withRouter(ContentLayout))

@@ -4,13 +4,11 @@ import { Modal } from 'antd'
 import { getToken } from '@/utils/auth'
 import { logout } from '@/store/actions'
 
-//创建一个axios示例
 const service = axios.create({
-  baseURL: 'https://test1.ecom365.dev', // api 的 base_url
-  timeout: 5000, // request timeout
+  baseURL: 'https://test1.ecom365.dev',
+  timeout: 5000,
 })
 
-// 请求拦截器
 service.interceptors.request.use(
   (config) => {
     if (store.getState().user.token) {
@@ -19,17 +17,16 @@ service.interceptors.request.use(
     return config
   },
   (error) => {
-    console.log(error) // for debug
+    console.log(error)
     // eslint-disable-next-line no-undef
     Promise.reject(error)
   },
 )
 
-// 响应拦截器
 service.interceptors.response.use(
   (response) => response,
   (error) => {
-    console.log('err' + error) // for debug
+    console.log('err' + error)
     const { status } = error.response
     if (status === 403) {
       Modal.confirm({

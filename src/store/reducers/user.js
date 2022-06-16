@@ -2,7 +2,7 @@ import * as types from '../action-types'
 import { getToken } from '@/utils/auth'
 const initUserInfo = {
   name: '',
-  role: '',
+  role: 'admin',
   avatar: '',
   token: getToken(),
 }

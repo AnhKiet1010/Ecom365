@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useState } from 'react'
 import './index.less'
 
 import { Layout } from 'antd'
@@ -7,16 +7,17 @@ import { connect } from 'react-redux'
 import Logo from './Logo'
 import IMenu from './Menu'
 import Search from './Search'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import menu from '@/config/menu'
 import Icon from '@ant-design/icons'
 
 const { Sider } = Layout
 
-const SiderComponent = (props) => {
+const SiderLayout = (props) => {
   const { sidebarCollapsed } = props
-
   const role = 'admin'
+  const location = useLocation()
+  const [openKey, setOpenKey] = useState([])
 
   const filterMenuItem = (item) => {
     const { roles } = item
@@ -29,8 +30,9 @@ const SiderComponent = (props) => {
   }
 
   function getItem(menuList) {
+    const { pathname } = location
     return menuList.reduce((pre, item) => {
-      if (!item.roles || filterMenuItem(item)) {
+      if (filterMenuItem(item)) {
         const menuItem = {
           label:
             item.path && !item.children ? <Link to={item.path}>{item.label}</Link> : item.label,
@@ -38,11 +40,14 @@ const SiderComponent = (props) => {
           icon: item.icon ? <Icon component={item.icon} /> : null,
         }
         if (item.children) {
+          const cItem = item.children.find((cItem) => pathname.indexOf(cItem.path) === 0)
+          if (cItem) {
+            setOpenKey([...openKey, item.path])
+          }
           menuItem.children = getItem(item.children)
         }
         pre.push(menuItem)
       }
-
       return pre
     }, [])
   }
@@ -54,7 +59,7 @@ const SiderComponent = (props) => {
       <Sider trigger={null} collapsible collapsed={sidebarCollapsed} width="250px">
         <Logo collapsed={sidebarCollapsed} />
         <Search />
-        <IMenu items={items} />
+        <IMenu items={items} openKey={openKey} />
       </Sider>
     </>
   )
@@ -67,4 +72,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(SiderComponent)
+export default connect(mapStateToProps)(SiderLayout)

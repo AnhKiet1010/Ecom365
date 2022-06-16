@@ -1,15 +1,11 @@
-import Loadable from 'react-loadable'
-import Loading from '@/components/Loading'
-const Home = Loadable({
-  loader: () => import('@/features/Home'),
-  loading: Loading,
-})
-const NotFound = Loadable({
-  loader: () => import('@/features/NotFound'),
-  loading: Loading,
-})
+import { lazy } from 'react'
+
+const Home = lazy(() => import('@/features/Home'))
+const Products = lazy(() => import('@/features/Products'))
+const NotFound = lazy(() => import('@/features/NotFound'))
 
 export default [
-  { path: '/', component: Home, roles: ['admin', 'editor', 'guest'] },
+  { path: '/home', component: Home, roles: ['admin', 'editor', 'guest'] },
+  { path: '/products', component: Products, roles: ['admin', 'editor', 'guest'] },
   { path: '/error/404', component: NotFound },
 ]

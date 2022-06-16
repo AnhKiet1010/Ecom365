@@ -49,7 +49,7 @@ export default defineConfig({
           '@menu-inline-submenu-bg': '#003E82',
           '@menu-highlight-color': '#49ADFC',
           '@menu-item-active-border-width': 0,
-          '@menu-icon-size': '15px',
+          '@menu-icon-size': '18px',
           '@menu-icon-size-lg': '20px',
           '@input-bg': '#003E82',
           '@input-border-color': '#FFFFFF66',
