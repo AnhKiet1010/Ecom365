@@ -1,7 +1,19 @@
-import { ReactComponent as CircleArrowClose } from './circle-arrow-close.svg'
-import { ReactComponent as CircleArrowOpen } from './circle-arrow-open.svg'
-import { ReactComponent as Home } from './home.svg'
-import { ReactComponent as Stock } from './stock.svg'
-import { ReactComponent as HRM } from './hrm.svg'
+import { ReactComponent as CircleArrowCloseIcon } from './circle-arrow-close.svg'
+import { ReactComponent as CircleArrowOpenIcon } from './circle-arrow-open.svg'
+import { ReactComponent as HomeIcon } from './home.svg'
+import { ReactComponent as StockIcon } from './stock.svg'
+import { ReactComponent as HRMIcon } from './hrm.svg'
+import { ReactComponent as NotiIcon } from './notification.svg'
+import { ReactComponent as LangIcon } from './lang.svg'
+import { ReactComponent as ReportIcon } from './report.svg'
 
-export { CircleArrowClose, CircleArrowOpen, Home, Stock, HRM }
+export {
+  CircleArrowCloseIcon,
+  CircleArrowOpenIcon,
+  HomeIcon,
+  StockIcon,
+  HRMIcon,
+  NotiIcon,
+  LangIcon,
+  ReportIcon,
+}

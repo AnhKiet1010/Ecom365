@@ -29,7 +29,7 @@ const ContentLayout = (props) => {
 
   return (
     <DocumentTitle title={getPageTitle(menuList, pathname)}>
-      <Content style={{ height: 'calc(100% - 100px)' }}>
+      <Content>
         <TransitionGroup>
           <CSSTransition key={location.pathname} timeout={500} classNames="fade" exit={false}>
             <Suspense fallback={<Loading />}>

@@ -1,9 +1,9 @@
 import * as types from '../action-types'
 import { getToken } from '@/utils/auth'
 const initUserInfo = {
-  name: '',
+  name: 'Nguyễn Văn A',
   role: 'admin',
-  avatar: '',
+  avatar: 'A',
   token: getToken(),
 }
 export default function user(state = initUserInfo, action) {

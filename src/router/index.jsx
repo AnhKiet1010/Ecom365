@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getUserInfo } from '@/store/actions'
 import Layout from '@/container/Layout'
-// import Login from '@/features/login'
+// import Login from '@/views/login'
 const Router = () => {
   // const { token } = props
   return (
