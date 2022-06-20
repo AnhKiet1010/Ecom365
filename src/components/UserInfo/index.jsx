@@ -45,7 +45,7 @@ const UserInfo = (props) => {
   const menu = <Menu items={items} onClick={onClick}></Menu>
   return (
     <div className="">
-      <Dropdown overlay={menu}>
+      <Dropdown overlay={menu} arrow={true}>
         <div className="wrap-info">
           <Avatar style={{ backgroundColor: '#7265e6' }} size="medium">
             {avatar}

@@ -9,7 +9,7 @@ const Search = (props) => {
   return (
     <div className="wrap-search">
       {!sidebarCollapsed ? (
-        <Input placeholder="Tìm kiếm" prefix={<SearchOutlined />} />
+        <Input placeholder="Tìm kiếm" prefix={<SearchOutlined className="icon" />} />
       ) : (
         <div className="search-icon">
           <SearchOutlined />

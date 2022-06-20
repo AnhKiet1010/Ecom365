@@ -12,7 +12,7 @@ const Notification = () => {
 
   const menu = <Menu items={items} />
   return (
-    <Dropdown overlay={menu} placement="bottomRight">
+    <Dropdown overlay={menu} placement="bottomRight" arrow={true}>
       <Badge size="medium" count={5}>
         <NotiIcon style={{ cursor: 'pointer', color: '#8d8d8d' }} />
       </Badge>
