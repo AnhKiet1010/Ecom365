@@ -2,6 +2,57 @@
   height: calc(100% - 122px);
 }
 
+.ant-menu-item-group {
+  .ant-menu-item-group-title {
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .ant-menu-item-group-list {
+    .ant-menu-item.ant-menu-item-selected {
+      border-radius: 2px;
+      padding-left: 16px;
+      width: 143px;
+      margin: 0 auto;
+      & a,
+      & a:hover {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.ant-menu-inline-collapsed {
+  .ant-menu.ant-menu-sub {
+    padding: 8px 0;
+  }
+}
+
+// Applied on collapsed
+.ant-menu-inline-collapsed {
+  & .ant-menu-submenu-title:hover {
+    color: #fff !important;
+  }
+  & .ant-menu-submenu-selected {
+    width: 32px !important;
+    height: 32.52px !important;
+    margin: auto;
+    margin-bottom: 8px;
+    border-radius: 2px;
+    color: #fff !important;
+    background-color: @primary-color;
+  }
+
+  & > .ant-menu-item {
+    padding: 0 !important;
+    .ant-menu-item-icon {
+      // display: block;
+      margin: 0 auto;
+    }
+  }
+}
+
 .ant-menu.ant-menu-root {
   border-right: none;
 }
@@ -16,16 +67,16 @@
 
 .ant-menu-item.ant-menu-item-selected,
 .ant-menu-item.ant-menu-item-active {
-.ant-menu-title-content {
-  a {
-    font-weight: 700;
+  .ant-menu-title-content {
+    a {
+      font-weight: 700;
+    }
   }
-}
 }
 
 .ant-menu-sub.ant-menu-inline {
   margin-left: 32px;
-  border-left: 2px solid #DEE2E640;
+  border-left: 2px solid #dee2e640;
 
   .ant-menu-item.ant-menu-item-only-child {
     height: 32px;
@@ -42,7 +93,7 @@
 
   .ant-menu-item.ant-menu-item-selected.ant-menu-item-only-child,
   .ant-menu-item.ant-menu-item-active.ant-menu-item-only-child {
-    background-color: #DEE2E640;
+    background-color: #dee2e640;
     border-radius: 2px;
     font-weight: 700;
 

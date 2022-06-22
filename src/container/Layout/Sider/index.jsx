@@ -38,6 +38,7 @@ const SiderLayout = (props) => {
             item.path && !item.children ? <Link to={item.path}>{item.label}</Link> : item.label,
           key: item.path,
           icon: item.icon ? <Icon component={item.icon} /> : null,
+          type: item.type,
         }
         if (item.children) {
           const cItem = item.children.find((cItem) => pathname.indexOf(cItem.path) === 0)
@@ -53,10 +54,17 @@ const SiderLayout = (props) => {
   }
 
   const items = useMemo(() => getItem(menu), [])
+  console.log(items)
 
   return (
     <>
-      <Sider trigger={null} collapsible collapsed={sidebarCollapsed} width="250px">
+      <Sider
+        trigger={null}
+        collapsible
+        collapsedWidth={54}
+        collapsed={sidebarCollapsed}
+        width="250px"
+      >
         <Logo collapsed={sidebarCollapsed} />
         <Search />
         <IMenu items={items} openKey={openKey} />
