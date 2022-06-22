@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import { Collapse, Select } from 'antd'
 
 const { Option } = Select
@@ -46,8 +46,8 @@ const AccordionForm = (props) => {
           ))}
         </Select>
         <p>
-          ** Nếu chọn N/A, khi tạo đơn hàng mới, cài đặt 'yêu cầu có tồn kho' của cửa hàng sẽ được
-          sử dụng.
+          Nếu chọn N/A, khi tạo đơn hàng mới, cài đặt yêu cầu có tồn kho của cửa hàng sẽ được sử
+          dụng.
         </p>
       </Panel>
 

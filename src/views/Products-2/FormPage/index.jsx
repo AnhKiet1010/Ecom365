@@ -40,6 +40,7 @@ const FormPage = () => {
     if (formFieldName === 'name' || formFieldName === 'nameOnBill') {
       value = val.target.value
     }
+    setAccordionData()
 
     setFormData({
       ...formData,

@@ -1,7 +1,7 @@
 import { lazy } from 'react'
 
 const Home = lazy(() => import('@/views/Home'))
-const Products = lazy(() => import('@/views/Products'))
+// const Products = lazy(() => import('@/views/Products'))
 const Products2 = lazy(() => import('@/views/Products-2'))
 const ProductForm = lazy(() => import('@/views/Products-2/FormPage'))
 const Reports = lazy(() => import('@/views/Reports'))
