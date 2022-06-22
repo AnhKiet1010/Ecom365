@@ -9,7 +9,9 @@ const getPath = (menuList, pathname) => {
   try {
     // eslint-disable-next-line no-inner-declarations
     function getNodePath(node) {
-      temppath.push(node)
+      if (node.type !== 'group') {
+        temppath.push(node)
+      }
       if (node.path === pathname) {
         throw new Error('GOT IT!')
       }

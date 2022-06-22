@@ -11,49 +11,42 @@ const routes = [
     label: 'Quản lí bán hàng',
     icon: StockIcon,
     path: '/product',
+    hasCollapsedHeader: true,
     children: [
       {
-        path: null,
-        icon: null,
-        label: 'Quản lí bán hàng',
-        type: 'group',
-        children: [
-          {
-            label: 'Sản phẩm',
-            path: '/products',
-            roles: ['admin'],
-          },
-          {
-            label: 'Danh mục',
-            path: '/products/category',
-            roles: ['admin'],
-          },
-          {
-            label: 'Mục lục',
-            path: '/products/list-category',
-            roles: ['admin'],
-          },
-          {
-            label: 'Cửa hàng',
-            path: '/products/store',
-            roles: ['admin'],
-          },
-          {
-            label: 'Nhóm cửa hàng',
-            path: '/products/group-store',
-            roles: ['admin'],
-          },
-          {
-            label: 'Chính sách giá',
-            path: '/products/price',
-            roles: ['admin'],
-          },
-          {
-            label: 'Khuyến mại',
-            path: '/products/promotion',
-            roles: ['admin'],
-          },
-        ],
+        label: 'Sản phẩm',
+        path: '/products',
+        roles: ['admin'],
+      },
+      {
+        label: 'Danh mục',
+        path: '/products/category',
+        roles: ['admin'],
+      },
+      {
+        label: 'Mục lục',
+        path: '/products/list-category',
+        roles: ['admin'],
+      },
+      {
+        label: 'Cửa hàng',
+        path: '/products/store',
+        roles: ['admin'],
+      },
+      {
+        label: 'Nhóm cửa hàng',
+        path: '/products/group-store',
+        roles: ['admin'],
+      },
+      {
+        label: 'Chính sách giá',
+        path: '/products/price',
+        roles: ['admin'],
+      },
+      {
+        label: 'Khuyến mại',
+        path: '/products/promotion',
+        roles: ['admin'],
       },
     ],
   },
@@ -61,6 +54,7 @@ const routes = [
     label: 'HRM',
     icon: HRMIcon,
     path: '/hrm',
+    hasCollapsedHeader: true,
     children: [
       {
         label: 'Chi nhánh',

@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 
 import Logo from './Logo'
 import IMenu from './Menu'
+// import IMenu from './Menu/index2'
 import Search from './Search'
 import { Link, useLocation } from 'react-router-dom'
 import menu from '@/config/menu'
@@ -20,7 +21,9 @@ const SiderLayout = (props) => {
   const [openKey, setOpenKey] = useState([])
 
   const filterMenuItem = (item) => {
+    // Check if expand menu then remove item
     const { roles } = item
+
     if (role === 'admin' || !roles || roles.includes(role)) {
       return true
     } else if (item.children) {
@@ -31,7 +34,7 @@ const SiderLayout = (props) => {
 
   function getItem(menuList) {
     const { pathname } = location
-    return menuList.reduce((pre, item) => {
+    const items = menuList.reduce((pre, item) => {
       if (filterMenuItem(item)) {
         const menuItem = {
           label:
@@ -39,6 +42,7 @@ const SiderLayout = (props) => {
           key: item.path,
           icon: item.icon ? <Icon component={item.icon} /> : null,
           type: item.type,
+          // hasCollapsedHeader: !!item.hasCollapsedHeader,
         }
         if (item.children) {
           const cItem = item.children.find((cItem) => pathname.indexOf(cItem.path) === 0)
@@ -51,10 +55,11 @@ const SiderLayout = (props) => {
       }
       return pre
     }, [])
+
+    return items
   }
 
   const items = useMemo(() => getItem(menu), [])
-  console.log(items)
 
   return (
     <>
